@@ -1,0 +1,4 @@
+# git ignore file
+/.vscode/*
+/.build/*
+/build/*
