@@ -104,7 +104,9 @@ $(DEPS_DIR)/%.d : %.S
 	@mkdir -p $(DEPS_DIR)
 	@$(CC) -MM $(CFLAGS) $< -MT $(subst ./,$(BUILD)/,$(addsuffix .o, $(basename $<))) > $@
 
+ifneq "$(MAKECMDGOALS)" "clean"
 -include $(DEPS)
+endif
 
 deploy: all 
 	@echo "Writing $(PRODUCT_BIN) to the board via ST-LINK"
